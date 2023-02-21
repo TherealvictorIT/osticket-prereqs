@@ -5,11 +5,6 @@
 <h1>osTicket - Prerequisites and Installation</h1>
 This tutorial outlines the prerequisites and installation of the open-source help desk ticketing system osTicket.<br />
 
-
-<h2>Video Demonstration</h2>
-
-
-
 <h2>Environments and Technologies Used</h2>
 
 - Microsoft Azure (Virtual Machines/Compute)
@@ -26,49 +21,80 @@ This tutorial outlines the prerequisites and installation of the open-source hel
 - osTicket Installation files
 - Heidi SQL
 
-<h2>Installation Steps</h2>
+<h2>Azure Installation Steps</h2>
 
 <p>
 </p>
 <p>
-Ok, welcome to my first tutorial! First things first we will have to create a Virtual machine using the Microsoft Azure portal. We will be using a VM which is a remote computer. We are using a VM in order to protect our physical machine just in case something breaks. Create a resource group and title it "osTicket". Afterwards create a VM with 2-4 CPUs. In this example I will be using 4 CPUs.
-  
- <img src="https://i.imgur.com/OPaIGoN.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
-<br />
+We will be installing an open source help desk ticketing system called osTicket. In order to do so we are going to create a Virtual Machine (VM) in Microsoft Azure. We are using a VM in order to protect our physical machine just in case something breaks. 
 <p>
+<img src="https://i.imgur.com/5fpbKix.png" height="70%" width="60%" alt="Disk Sanitization Steps"/>
 </p>
-<p>Next simply connect to your newly created VM using RDP using the public IPv4 address. If you are a Mac user you will have to download Microsoft RDP. 
-</p>
-<img src="https://i.imgur.com/uLVKzxS.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
-<br />
+To create a VM in Azure first create a resource group and title it "osTicketVM". Next create a VM running on Windows 10 and tie it to the "osTicketVM" resource group. Select 4 vcpus for size, and create a username and password (Make sure to remeber it, you will need to log into it). Check the licensing box.  
+<p>
+<img src="https://i.imgur.com/zVETWK2.png" height="70%" width="60%" alt="Disk Sanitization Steps"/>
+<p>
+Continue to next page Networking. Allow Azure to create Virtual Network by default. 
+<p>
+<img src="https://i.imgur.com/PKxoamq.png" height="50%" width="50%" alt="Disk Sanitization Steps"/>
+<p>
+Next we will connect our VM using RDP. We will be using the public IPv4 address to add the VM to RDP. If you are a Mac user you will have to download Microsoft RDP. Login using the Username and Password create on Azure for the VM.
 
+<h2>osTicket Installation Steps</h2>
 <p>
 </p>
 <p>
-Alright, now that you are connected to your VM you will have to enable IIS. Simply access the control panel then select uninstall a program. Off to the left select "Turn windows features on or off". A list will appear then you will enable Internet Information Services.
+<h4>Enable IIS in Windows with CGI</h4>
+
+Once we have access to the VM we will have to enable IIS. 
+</p> 
+<img src="https://i.imgur.com/6qyabGo.png" height="70%" width="60%" alt="Disk Sanitization Steps"/>
+</p> 
+<br /> Simply access the control panel, then select Programs. Underneath Programs and Features select: Turn Windows features on or off. 
+<br />In the popup menu expand Internet Information Services, then World Wide Web Services, then Application Development Features, Select: CGI. Apply changes by clicking ok. <br />Test if changes where made by opening a browser and typing in 127.0.0.1 which is a loopback. We are trying to load a webpage that is running off our computer
 </p>  
-<img src="https://i.imgur.com/qtEnuWu.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+
+<h4>Download and Install Additional Applications</h4>
+<p>
+Once we enabled IIS we will install a couple more applications that are needed to install osTicket. Files can be found here: https://drive.google.com/drive/u/1/folders/1APMfNyfNzcxZC6EzdaNfdZsUwxWYChf6
+
 </p>
-<br />
+First we will download and install:
+<p>
+<br />PHP Manager for IIS
+<br />Rewrite Module
+<p>
+Now we will create the directory C:\PHP
 </p>
 <p>
-Excellent. Now that you have enabled IIS we need to install Web Platform Installer. I have provided a link here: https://drive.google.com/drive/u/0/folders/1APMfNyfNzcxZC6EzdaNfdZsUwxWYChf6
-  That link will provide you with all of the material you need to download to get osTicket up and running. Simply click the link and install the Web Platform Installer
-</p>
-<img src="https://i.imgur.com/AxHCfQ6.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>  
-</p>
+<img src="https://i.imgur.com/1sFsKsC.png" height="60%" width="45%" alt="Disk Sanitization Steps"/>
 <p>
-Once you have installed Web Installer Platform open it. From inside the application you are going to install MySQL 5.5 Afterwards install x86 version of PHP up until 7.3. There are some failed files such as C++ redistributable package as well as PHP 7.3.8 and PHP Manager for IIS those files can be found with the install link.
-</p>
-<img src="https://i.imgur.com/JJ8bZeJ.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+Create a new folder in C Drive and name it PHP
+<p>
+We have to download and install a couple more programs:
+<p>
+PHP 7.3.8 and unzip the contents into C:\PHP
+<br />VC_redist.x86.exe
+<br />Setup MySQL 5.5.62 as follows:
+<br />--Typical Setup
+<br />--Launch Configuration Wizard (after install)
+<br />--Standard Configuration
+<br />--Setup password you can remember; Username is root
+</p>  
+
+<h4>Installing osTicket</h4>
+<p>
+<img src="https://i.imgur.com/ShGZfCq.png" height="75%" width="65%" alt="Disk Sanitization Steps"/>
+<p>
+Now we will access the program Internet Information Services (IIS) as administrator. We will Register PHP from within the IIS. The php-cgi app can be found in Drive C. Restart Server once done. 
+<p>
+<img src="https://i.imgur.com/Q4vVkQ2.png" height="75%" width="70%" alt="Disk Sanitization Steps"/>
 <p>
 </p>
 <p>
 Next download osTicket. Then extract and copy the "upload" folder into c:\inetpub\wwwroot. Afterwards rename the folder to osTicket
 </P>
-<img src="https://i.imgur.com/TUGiSKi.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/4AkTkV0.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <br />
 <p>
