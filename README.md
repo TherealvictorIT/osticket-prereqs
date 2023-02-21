@@ -113,19 +113,19 @@ Go back into c:\inetpub\wwwroot\osTicket\include\ost-sampleconfig.php rename the
 Assign permissions to ost-config.php Disable inheritance->Remove all
 New Permissions-> Type: Everyone-> Check Full control
 </p>
-<img src="https://i.imgur.com/RmVk3q5.png" height="70%" width="70%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/RmVk3q5.png" height="65%" width="60%" alt="Disk Sanitization Steps"/>
 <br />
 <p>
 Afterwards continue setting up osTicket in the browser (click continue) then you will name the Helpdesk to your liking. Select a default email that will receive emails from customers who submit tickets. 
 </p>
-<img src="https://i.imgur.com/C0q3lrr.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/C0q3lrr.png" height="70%" width="60%" alt="Disk Sanitization Steps"/>
 <br />
 <p>
 We will have to Download and Install HeidiSQL
 <br /> We will create a new connection Username: root Password: (Password you choose previously)
 <br /> Next create a database. Right click Unnamed. Click Create New, then Database. Name it osTicket  
 </p>
-<img src="https://i.imgur.com/cBrVtyB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/cBrVtyB.png" height="70%" width="60%" alt="Disk Sanitization Steps"/>
 <br />
 <p>
 <br /> Continue Setting up osticket in the browser MySQL Database: osTicket MySQL Username: root MySQL Password: Password1 Click “Install Now!”
