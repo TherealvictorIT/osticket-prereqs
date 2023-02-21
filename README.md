@@ -92,23 +92,21 @@ Now we will access the program Internet Information Services (IIS) as administra
 <p>
 </p>
 <p>
-Next download osTicket. Then extract and copy the "upload" folder into c:\inetpub\wwwroot. Afterwards rename the folder to osTicket
+Next download osTicket. Then extract and copy the "upload" folder into c:\inetpub\wwwroot. Afterwards rename the folder to osTicket. 
 </P>
-<img src="https://i.imgur.com/4AkTkV0.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/KMn9YcT.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
+<br />
+<p>
+Open IIS Manager and restart the server. Once inside IIS manager go to Sites->Default Web Site->osTicket on the right, click "Browse*.80" from there your default browser should open osTicket webserver.
+</p>
+<img src="https://i.imgur.com/Yevfpxv.png" height="75%" width="65%" alt="Disk Sanitization Steps"/>
 <br />
 <p>
 </p>
 <p>
-Open IIS Manager and restart the server. Once inside IIS manager go to Sites->Default->osTicket on the right, click "Browse*.80" from there your default browser should open osTicket webserver.
-</p>
-<img src="https://i.imgur.com/4AkTkV0.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<p>
-</p>
-<p>
-Go back into IIS manager and enable some extensions. To do this you have to go to Sites->Default->osTicket
-Then double click on PHP manager. Click on "Disable or enable an extension" Enable "php_intl.dll" & "php_opcache.dll" then refresh the osTicket webserver and obsereve the changes "Intl Extension" should now be enabled. 
+We will go back into IIS manager and enable some extensions. To do this we have to go to Sites->Default->osTicket
+Then double click on PHP manager. Click on "Disable or enable an extension" Enable "php_imap.dll" & "php_intl.dll" & "php_opcache.dll" then refresh the osTicket webserver and obsereve the changes "Intl Extension" should now be enabled. 
 </p>
 <img src="https://i.imgur.com/APZgUTT.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
