@@ -103,33 +103,34 @@ Open IIS Manager and restart the server. Once inside IIS manager go to Sites->De
 <img src="https://i.imgur.com/Yevfpxv.png" height="75%" width="65%" alt="Disk Sanitization Steps"/>
 <br />
 <p>
-</p>
-<p>
 We will go back into IIS manager and enable some extensions. To do this we have to go to Sites->Default->osTicket
 Then double click on PHP manager. Click on "Disable or enable an extension" Enable "php_imap.dll" & "php_intl.dll" & "php_opcache.dll" then refresh the osTicket webserver and obsereve the changes "Intl Extension" should now be enabled. 
 </p>
-<img src="https://i.imgur.com/APZgUTT.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/8M20eqO.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
-<p>
-</p>
 <p>
 Go back into c:\inetpub\wwwroot\osTicket\include\ost-sampleconfig.php rename the file to c:\inetpub\wwwroot\osTicket\include\ost-config.php
-Assign permissions to ost-config.php Disable inheritance->Removeall
-New Permissions->Everyone->all
+Assign permissions to ost-config.php Disable inheritance->Remove all
+New Permissions-> Type: Everyone-> Check Full control
 </p>
-<img src="https://i.imgur.com/1nYaYGe.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/RmVk3q5.png" height="70%" width="70%" alt="Disk Sanitization Steps"/>
 <br />
-<p>
-</p>
 <p>
 Afterwards continue setting up osTicket in the browser (click continue) then you will name the Helpdesk to your liking. Select a default email that will receive emails from customers who submit tickets. 
 </p>
-<img src="https://i.imgur.com/RmVk3q5.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/C0q3lrr.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <p>
-<p>Continue Setting up osticket in the browser MySQL Database: osTicket MySQL Username: root MySQL Password: Password1 Click “Install Now!”
-Congratulations, hopefully it is installed with no errors!
-Clean up
+We will have to Download and Install HeidiSQL
+<br /> We will create a new connection Username: root Password: (Password you choose previously)
+<br /> Next create a database. Right click Unnamed. Click Create New, then Database. Name it osTicket  
+</p>
+<img src="https://i.imgur.com/cBrVtyB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
+<p>
+<br /> Continue Setting up osticket in the browser MySQL Database: osTicket MySQL Username: root MySQL Password: Password1 Click “Install Now!”
+Congratulations, if there is no errors you will be taken to a the browser will say Congratulations!
+Now time to clean up
 Delete: C:\inetpub\wwwroot\osTicket\setup
 Set Permissions to “Read” only: C:\inetpub\wwwroot\osTicket\include\ost-config.php
-Login to the osTicket Admin Panel (http://localhost/osTicket/scp/login.php)
+Login to the osTicket Admin Panel (http://localhost/osTicket/scp/login.php) using username and password
